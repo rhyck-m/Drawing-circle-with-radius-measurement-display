@@ -1,4 +1,4 @@
-﻿var map, toolbar, symbol, geomTask, circleMeasure = false;
+﻿var map, toolbar, symbol, geomTask, circleMeasure = false, measureUnits;
 
 require([
   "esri/map",
@@ -46,12 +46,10 @@ require([
             circleMeasure = true;
             _has_circle_graphics = true;
 
-            var measureUnit = dijit.byId('measureUnits').get('value');
-            var dr = new Drawings({
-                measureUnits: measureUnit
-            });
+            measureUnits = dijit.byId('measureUnits').get('value');
+            var dr = new Drawings();
             
-            console.log(dr.measureUnits);
+            //console.log(dr.measureUnits);
             dr.drawCircleWithMeasurement();
         }
         else {
