@@ -1,10 +1,10 @@
 ﻿
+
 /*
   Drawing circle with measurements
-  by tsellste from Javascript API Forum 
-  Contributor: Richard Moussopo
+  by Richard Moussopo
+  Contributor:  tsellste from Javascript API Forum 
  */
-
 define([
     "dojo/_base/declare", "dojo/_base/lang",
     "dojo/dom", "dojo/on",
@@ -70,15 +70,13 @@ define([
                 //onDrag, calculate distance between currentPoint and centerPt     
                 map.on("mouse-drag", function (evt) {
                     if (circleMeasure) {
-                        var measureUnit = (this).measureUnits;
-                        console.log(measureUnit);
                         var pl = new Polyline(map.spatialReference);
                         pl.addPath([centerPt.mapPoint, evt.mapPoint]);
-                        var radius = geometryEngine.geodesicLength(pl, "meters");
+                        var radius = geometryEngine.geodesicLength(pl, measureUnits);
                         var circle = new Circle({ center: centerPt.mapPoint, radius: radius, geodesic: true, spatialReference: map.spatialReference });
                         drawCircle.setGeometry(circle);
                         radiusLine.setGeometry(pl);
-                        ts.setText("Radius: " + radius.toFixed(1) + " meters");
+                        ts.setText("Radius: " + radius.toFixed(1) + " " + measureUnits);
                         radiusText.setGeometry(centerPt.mapPoint);
                         //console.log("radius is:" + radius);
                     }
