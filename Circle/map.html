@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,user-scalable=no"/>
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Drawings</title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.15/dijit/themes/nihilo/nihilo.css"/>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.15/esri/css/esri.css"/>
+    <link href="style/layout.css" rel="stylesheet" />
+
+</head>
+<body class="nihilo">
+
+    <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'">
+        <div id="header" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+            <span>Draw:<br /></span>
+            <button data-dojo-type="dijit/form/Button">Point</button>
+            <button data-dojo-type="dijit/form/Button">Multi Point</button>
+            <button data-dojo-type="dijit/form/Button">Line</button>
+            <button data-dojo-type="dijit/form/Button">Polyline</button>
+            <button data-dojo-type="dijit/form/Button">Polygon</button>
+            <button data-dojo-type="dijit/form/Button">Freehand Polyline</button>
+            <button data-dojo-type="dijit/form/Button">Freehand Polygon</button>
+
+            <button data-dojo-type="dijit/form/Button">Arrow</button>
+            <button data-dojo-type="dijit/form/Button">Triangle</button>
+            <button data-dojo-type="dijit/form/Button">Circle</button>
+            <button data-dojo-type="dijit/form/Button">Ellipse</button>
+
+            <span>Circle measure unit:</span>
+            <select data-dojo-type="dijit/form/ComboBox" id="measureUnits" name="measureUnits">
+                <option selected>meters</option>
+                <option>feet</option>
+                <option>kilometers</option>
+                <option>miles</option>
+            </select>
+        </div>
+        <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
+    </div>
+
+    <script type="text/javascript">
+        var djConfig = {
+            packages: [
+                {name: "dr", location: "/js"}
+            ]
+        }
+    </script>
+    <script src="https://js.arcgis.com/3.15/"></script>
+    <script src="js/initMap.js"></script>
+</body>
+</html>
