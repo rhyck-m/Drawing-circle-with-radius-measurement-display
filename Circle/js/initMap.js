@@ -22,7 +22,7 @@ require([
 
     map = new Map("map", {
         basemap: "streets",
-        center: [-83.120, 39.928],
+        center: [-83.002156, 39.960528],
         zoom: 14
     });
     console.log(map);
